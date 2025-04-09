@@ -20,3 +20,17 @@ describe('POST /add', () => {
     expect(res.body.error).toBe('a and b must be numbers');
   });
 });
+
+describe('POST /subtract', () => {
+  it('returns correct result when a and b are numbers', async () => {
+    const res = await request(app).post('/subtract').send({ a: 10, b: 4 });
+    expect(res.statusCode).toBe(200);
+    expect(res.body.result).toBe(6);
+  });
+
+  it('returns error if a or b is not a number', async () => {
+    const res = await request(app).post('/subtract').send({ a: 10, b: 'xyz' });
+    expect(res.statusCode).toBe(400);
+    expect(res.body.error).toBe('a and b must be numbers');
+  });
+});
