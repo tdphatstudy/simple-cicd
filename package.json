@@ -7,7 +7,9 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "docker:dev": "docker-compose up -d --build",
+    "docker:stop": "docker-compose down"
   },
   "author": "",
   "license": "ISC",
